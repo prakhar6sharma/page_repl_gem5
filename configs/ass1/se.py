@@ -239,6 +239,26 @@ for i in range(np):
 
     if 'DerivO3CPU' == args.cpu_type:
         system.cpu[i].issueWidth = args.issue_width
+
+    if 'MinorCPU' == args.cpu_type:
+       base_issue_width = 2
+       scale = args.issue_width / base_issue_width
+
+       system.cpu[i].fetch1FetchLimit = scale * 1
+       system.cpu[i].fetch2InputBufferSize = scale * 2
+       system.cpu[i].decodeInputBufferSize = scale * 3
+       system.cpu[i].decodeInputWidth = args.issue_width
+       system.cpu[i].executeInputWidth = args.issue_width
+       system.cpu[i].executeIssueLimit = args.issue_width
+       system.cpu[i].executeMemoryIssueLimit = scale * 1
+       system.cpu[i].executeCommitLimit = args.issue_width
+       system.cpu[i].executeMemoryCommitLimit = scale * 1
+       system.cpu[i].executeInputBufferSize = scale * 7
+       system.cpu[i].executeMaxAccessesInMemory = scale * 5
+       system.cpu[i].executeLSQRequestsQueueSize = scale * 1
+       system.cpu[i].executeLSQTransfersQueueSize = scale * 2
+       system.cpu[i].executeLSQStoreBufferSize = scale * 5
+    
     system.cpu[i].createThreads()
 
 if args.ruby:
