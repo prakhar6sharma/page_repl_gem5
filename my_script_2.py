@@ -12,6 +12,6 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 2MB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/9/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/8/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
