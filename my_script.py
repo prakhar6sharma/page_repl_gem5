@@ -12,7 +12,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 2MB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/1/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/1/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -27,7 +27,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 2MB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/2/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/2/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -42,7 +42,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 2MB --issue-width 2"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/3/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/3/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -56,7 +56,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 2MB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/4/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/4/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -71,7 +71,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/5/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/5/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -86,7 +86,7 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 256kB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/6/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/6/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -100,6 +100,6 @@ for benchmark in benchmarks:
     bashCommand += " --l1d_size 64kB --l2_size 16MB --issue-width 8"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    bashCommand = "cp -a m5out/ ../ass1outputs/" + benchmark +"/7/"
+    bashCommand = "cp -a m5out/ ../cs251a-final/" + benchmark +"/7/"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
