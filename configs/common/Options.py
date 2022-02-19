@@ -413,7 +413,7 @@ def addCommonOptions(parser):
                       choices=ObjectList.repl_list.get_names(),
                       help = "replacement policy for l1")
 
-    parser.add_argument("--12_repl", type=str, default="LRURP",
+    parser.add_argument("--l2_repl", type=str, default="LRURP",
                       choices=ObjectList.repl_list.get_names(),
                       help = "replacement policy for l2")
 
