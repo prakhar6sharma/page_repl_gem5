@@ -149,10 +149,10 @@ class WeightedLRURP(LRURP):
 
 class NMRURP(BaseReplacementPolicy):
     type = 'NMRURP'
-    cxx_class = 'gem5::replacement_policy::NMRURP'
+    cxx_class = 'gem5::replacement_policy::NMRU'
     cxx_header = "mem/cache/replacement_policies/nmru_rp.hh"
 
 class LIPRP(BaseReplacementPolicy):
     type = 'LIPRP'
-    cxx_class = 'gem5::replacement_policy::LIPRP'
+    cxx_class = 'gem5::replacement_policy::LIP'
     cxx_header = "mem/cache/replacement_policies/lip_rp.hh"
