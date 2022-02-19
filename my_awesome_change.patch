@@ -1,0 +1,82 @@
+diff --git a/src/arch/x86/isa/decoder/x87.isa b/src/arch/x86/isa/decoder/x87.isa
+index dc5840f..de83523 100644
+--- a/src/arch/x86/isa/decoder/x87.isa
++++ b/src/arch/x86/isa/decoder/x87.isa
+@@ -44,7 +44,7 @@ format WarnUnimpl {
+             0x2: fcom();
+             0x3: fcomp();
+             0x4: Inst::FSUB1(Ed);
+-            0x5: fsubr();
++            0x5: Inst::FSUBR1(Eq);
+             0x6: Inst::FDIV1(Ed);
+             0x7: fdivr();
+         }
+@@ -194,7 +194,7 @@ format WarnUnimpl {
+                 default: fcomp();
+             }
+             0x4: decode MODRM_MOD {
+-                0x3: fsubr();
++                0x3: Inst::FSUBR2(Eq);
+                 default: Inst::FSUB2(Mq);
+             }
+             0x5: decode MODRM_MOD {
+diff --git a/src/arch/x86/isa/insts/x87/arithmetic/subtraction.py b/src/arch/x86/isa/insts/x87/arithmetic/subtraction.py
+index dea1277..9efacb3 100644
+--- a/src/arch/x86/isa/insts/x87/arithmetic/subtraction.py
++++ b/src/arch/x86/isa/insts/x87/arithmetic/subtraction.py
+@@ -53,6 +53,28 @@ def macroop FSUB1_P
+     subfp st(0), st(0), ufp1
+ };
+ 
++
++
++def macroop FSUBR1_R
++{
++    subfp st(0), sti, st(0)
++};
++
++
++def macroop FSUBR1_M
++{
++    ldfp ufp1, seg, sib, disp
++    subfp st(0), ufp1, st(0)
++};
++
++def macroop FSUBR1_P
++{
++    rdip t7
++    ldfp ufp1, seg, riprel, disp
++    subfp st(0), ufp1, st(0)
++};
++
++
+ def macroop FSUB2_R
+ {
+     subfp sti, sti, st(0)
+@@ -71,6 +93,26 @@ def macroop FSUB2_P
+     subfp st(0), st(0), ufp1
+ };
+ 
++
++def macroop FSUBR2_R
++{
++    subfp sti, st(0), sti
++};
++
++def macroop FSUBR2_M
++{
++    ldfp ufp1, seg, sib, disp
++    subfp st(0), ufp1, st(0)
++};
++
++def macroop FSUBR2_P
++{
++    rdip t7
++    ldfp ufp1, seg, riprel, disp
++    subfp st(0), ufp1, st(0)
++};
++
++
+ def macroop FSUBP
+ {
+     subfp st(1), st(1), st(0), spm=1

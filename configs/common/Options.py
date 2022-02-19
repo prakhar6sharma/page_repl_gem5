@@ -409,6 +409,14 @@ def addCommonOptions(parser):
         "that are present under any of the roots. If not given, dump all "
         "stats. ")
 
+    parser.add_option("--l1d_repl", type="choice", default="LRURP",
+                      choices=ObjectList.repl_list.get_names(),
+                      help = "replacement policy for l1")
+
+    parser.add_option("--12_repl", type="choice", default="LRURP",
+                      choices=ObjectList.repl_list.get_names(),
+                      help = "replacement policy for l2")
+
 
 def addSEOptions(parser):
     # Benchmark options
