@@ -69,10 +69,10 @@ def _get_cache_opts(level, options):
 
     replacement_attr = '{}_repl'.format(level)
     if hasattr(options, replacement_attr):
-        cacheClass = ObjectList.repl_list.get(options.replacement_attr)
+        cacheClass = ObjectList.repl_list.get(getattr(options, replacement_attr))
         print(cacheClass, "***********")
         attribute = 'replacement_policy'
-        opts[attribute] = ObjectList.repl_list.get(options.replacement_attr)()
+        opts[attribute] = ObjectList.repl_list.get(getattr(options, replacement_attr))()
 
     return opts
 
